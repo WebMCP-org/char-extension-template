@@ -1,0 +1,7 @@
+{
+  "extends": "./.wxt/tsconfig.json",
+  "compilerOptions": {
+    "types": ["./.wxt/wxt.d.ts", "@types/chrome", "node"]
+  },
+  "exclude": ["**/*.test.ts"]
+}

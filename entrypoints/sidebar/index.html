@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Side Panel</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--char-color-background, #0a0a0a);
+      font-family: var(--char-font-sans, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
+      color: var(--char-color-foreground, #e0e0e0);
+    }
+
+    /* ── Layout ── */
+    #sidebar-root {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* ── Agent container ── */
+    #agent-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    char-agent {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── Auth overlay ── */
+    #auth-status {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      background: var(--char-color-background, #0a0a0a);
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+    #auth-status[data-visible="false"] {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #auth-status-card {
+      width: min(280px, 100%);
+      text-align: center;
+    }
+    #auth-status-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      border-radius: var(--char-radius-lg, 12px);
+      background: var(--char-color-card, #141414);
+      border: 1px solid var(--char-color-border, #1e1e1e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--char-color-muted-foreground, #666);
+    }
+    #auth-status-title {
+      font-size: var(--char-font-size-sm, 14px);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    #auth-status-message {
+      font-size: var(--char-font-size-xs, 12px);
+      line-height: 1.5;
+      color: var(--char-color-muted-foreground, #777);
+      margin-bottom: 16px;
+    }
+    #auth-status-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--char-color-border, #2a2a2a);
+      border-radius: var(--char-radius, 8px);
+      background: var(--char-color-card, #161616);
+      color: var(--char-color-foreground, #e0e0e0);
+      padding: 8px 16px;
+      font-size: var(--char-font-size-xs, 12px);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    #auth-status-button:hover {
+      background: var(--char-color-accent, #1e1e1e);
+      border-color: var(--char-color-ring, #3a3a3a);
+    }
+
+    /* ── Loading state ── */
+    #auth-status[data-state="loading"] #auth-status-icon {
+      animation: pulse var(--char-duration-slow, 2s) ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar-root">
+    <div id="agent-container">
+      <!-- char-agent element is injected here by main.ts -->
+      <div id="auth-status" data-visible="true" data-state="loading">
+        <div id="auth-status-card">
+          <div id="auth-status-icon">
+            <!-- Replace this SVG with your brand icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <div id="auth-status-title">Sign in required</div>
+          <div id="auth-status-message">Sign in to get started.</div>
+          <button id="auth-status-button" type="button">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Sign in
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "char-extension-template",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "postinstall": "node ./scripts/run-wxt-prepare.mjs",
+    "prepare": "wxt prepare",
+    "check": "wxt prepare && tsc --noEmit"
+  },
+  "dependencies": {
+    "@char-ai/extension-core": "^0.1.0",
+    "@mcp-b/char": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.37",
+    "typescript": "^5.9.0",
+    "wxt": "^0.20.5"
+  }
+}
