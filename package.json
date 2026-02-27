@@ -12,8 +12,8 @@
     "check": "wxt prepare && tsc --noEmit"
   },
   "dependencies": {
-    "@char-ai/extension-core": "^0.1.0",
-    "@mcp-b/char": "^0.1.3"
+    "@char-ai/extension-core": "workspace:*",
+    "@mcp-b/char": "workspace:*"
   },
   "devDependencies": {
     "@types/chrome": "^0.1.37",
