@@ -83,7 +83,7 @@ export default defineConfig({
         default_title: 'Open Side Panel',
       },
       side_panel: {
-        default_path: 'sidebar.html',
+        default_path: 'sidepanel.html',
       },
     };
   },

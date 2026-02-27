@@ -43,9 +43,9 @@ All runtime configuration is done via environment variables in `.env`:
 | Extension name | `.env` | `WXT_EXTENSION_NAME` |
 | Manifest description | `wxt.config.ts` | Edit string on line 53 |
 | Action button tooltip | `wxt.config.ts` | Edit string on line 83 |
-| Colors, fonts, radii | `entrypoints/sidebar/index.html` | CSS custom property fallbacks |
-| Auth overlay copy | `entrypoints/sidebar/index.html` | Edit HTML text |
-| Auth overlay icon | `entrypoints/sidebar/index.html` | Replace inline SVG |
+| Colors, fonts, radii | `entrypoints/sidepanel/index.html` | CSS custom property fallbacks |
+| Auth overlay copy | `entrypoints/sidepanel/index.html` | Edit HTML text |
+| Auth overlay icon | `entrypoints/sidepanel/index.html` | Replace inline SVG |
 | Extension icons | `public/icon-*.png` | Replace files |
 
 ## OIDC Redirect URI
