@@ -67,8 +67,8 @@ export default defineConfig({
         extension_pages: [
           "script-src 'self';",
           "object-src 'self';",
-          "style-src 'self' 'unsafe-inline';",
-          "font-src 'self' data:;",
+          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;",
+          "font-src 'self' data: https://fonts.gstatic.com;",
           "connect-src 'self' data:",
           ...(isDevelopment ? ['ws://localhost:*', 'http://localhost:*'] : []),
           ...(isDevelopment ? ['wss:', 'ws:'] : ['wss:']),
